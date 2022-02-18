@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import App from '../App';
 
 import renderWithRouter from './renderWithRouter';
-// import { About } from '../components';
 
 describe('testando o componente About', () => {
   test('Teste se a página contém as informações sobre a Pokédex', () => {
