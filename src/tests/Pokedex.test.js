@@ -40,8 +40,6 @@ describe('testando o componente Pokedex', () => {
   it('O prim Pokémon aparece ao clicar no botão, se estiver no último Pokémon', () => {
     renderWithRouter(<App />);
 
-    // const pokemonList = pokemons.map(({ name }) => name);
-    // pokemonList.forEach(pokemon);
     const firstPokemon = screen.getByText(/pikachu/i);
     expect(firstPokemon).toBeInTheDocument();
     const nextButton = screen.getByRole('button', { name: /próximo pokémon/i });
@@ -50,29 +48,11 @@ describe('testando o componente Pokedex', () => {
     const secondPokemon = screen.getByText(/charmander/i);
     expect(secondPokemon).toBeInTheDocument();
     userEvent.click(nextButton);
-
-    const thirdPokemon = screen.getByText(/caterpie/i);
-    expect(thirdPokemon).toBeInTheDocument();
     userEvent.click(nextButton);
-
-    const fourthPokemon = screen.getByText(/ekans/i);
-    expect(fourthPokemon).toBeInTheDocument();
     userEvent.click(nextButton);
-
-    const fivePokemon = screen.getByText(/alakazam/i);
-    expect(fivePokemon).toBeInTheDocument();
     userEvent.click(nextButton);
-
-    const sixthPokemon = screen.getByText(/mew/i);
-    expect(sixthPokemon).toBeInTheDocument();
     userEvent.click(nextButton);
-
-    const sevenPokemon = screen.getByText(/rapidash/i);
-    expect(sevenPokemon).toBeInTheDocument();
     userEvent.click(nextButton);
-
-    const eightPokemon = screen.getByText(/snorlax/i);
-    expect(eightPokemon).toBeInTheDocument();
     userEvent.click(nextButton);
 
     const lastPokemon = screen.getByText(/dragonair/i);
