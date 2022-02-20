@@ -6,25 +6,25 @@ import App from '../App';
 import renderWithRouter from './renderWithRouter';
 
 describe('testando o componente App', () => {
-  test('O primeiro link deve possuir o texto Home', () => {
+  it('O primeiro link deve possuir o texto Home', () => {
     renderWithRouter(<App />);
 
     const homeLink = screen.getByRole('link', { name: /home/i });
     expect(homeLink).toBeInTheDocument();
   });
-  test('O segundo link deve possuir o texto About', () => {
+  it('O segundo link deve possuir o texto About', () => {
     renderWithRouter(<App />);
 
     const aboutLink = screen.getByRole('link', { name: /about/i });
     expect(aboutLink).toBeInTheDocument();
   });
-  test('O terceiro link deve possuir o texto Favorite Pokémons', () => {
+  it('O terceiro link deve possuir o texto Favorite Pokémons', () => {
     renderWithRouter(<App />);
 
     const favoriteLink = screen.getByRole('link', { name: /favorite pokémons/i });
     expect(favoriteLink).toBeInTheDocument();
   });
-  test('verifica se redireciona para a página inicial, na URL / ao clicar no link Home',
+  it('verifica se redireciona para a página inicial, na URL / ao clicar no link Home',
     () => {
       const { history } = renderWithRouter(<App />);
       const homeLink = screen.getByRole('link', { name: /home/i });
@@ -32,7 +32,7 @@ describe('testando o componente App', () => {
       userEvent.click(homeLink);
       expect(history.location.pathname).toBe('/');
     });
-  test('teste se ao clicar no link About renderiza para /about',
+  it('teste se ao clicar no link About renderiza para /about',
     () => {
       const { history } = renderWithRouter(<App />);
       const aboutLink = screen.getByRole('link', { name: /about/i });
@@ -40,7 +40,7 @@ describe('testando o componente App', () => {
       userEvent.click(aboutLink);
       expect(history.location.pathname).toBe('/about');
     });
-  test('teste se ao clicar no link Pokémons Favoritados renderiza para /favorites',
+  it('teste se ao clicar no link Pokémons Favoritados renderiza para /favorites',
     () => {
       const { history } = renderWithRouter(<App />);
       const favoriteLink = screen.getByRole('link', { name: /favorite pokémons/i });
@@ -48,7 +48,7 @@ describe('testando o componente App', () => {
       userEvent.click(favoriteLink);
       expect(history.location.pathname).toBe('/favorites');
     });
-  test('verifica se vai para a página Not Found ao entrar em uma URL desconhecida',
+  it('verifica se vai para a página Not Found ao entrar em uma URL desconhecida',
     () => {
       const { history } = renderWithRouter(<App />);
       history.push('/xablau');

@@ -1,12 +1,11 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 import App from '../App';
 
 import renderWithRouter from './renderWithRouter';
 
 describe('testando o componente NotFound', () => {
-  test('verifica página contém um heading com o texto Page requested not found', () => {
+  it('verifica página contém um heading com o texto Page requested not found', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/xablau');
 
@@ -14,7 +13,7 @@ describe('testando o componente NotFound', () => {
       .getByRole('heading', { name: /page requested not found/i });
     expect(notFound).toBeInTheDocument();
   });
-  test('Teste se página mostra a imagem https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif', () => {
+  it('Teste se página mostra a imagem https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/xablau');
 
