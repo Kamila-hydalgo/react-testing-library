@@ -25,6 +25,7 @@ describe('testando o componente Pokedex', () => {
     renderWithRouter(<App />);
 
     const pokemonList = pokemons.map(({ name }) => name);
+
     const clickNext = () => {
       const next = screen.getByRole('button', { name: /próximo pokémon/i });
       userEvent.click(next);
@@ -45,8 +46,6 @@ describe('testando o componente Pokedex', () => {
     const nextButton = screen.getByRole('button', { name: /próximo pokémon/i });
     userEvent.click(nextButton);
 
-    const secondPokemon = screen.getByText(/charmander/i);
-    expect(secondPokemon).toBeInTheDocument();
     userEvent.click(nextButton);
     userEvent.click(nextButton);
     userEvent.click(nextButton);
